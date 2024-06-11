@@ -365,16 +365,27 @@
     </style>
 </head>
 <body>
-    <h1>Restaurant Menu</h1>
+    <nav>
+        <a href="">cart </a>
+    </nav>
+    <h1> CAKES & CAFE</h1>
     <div class="menu-section">
-        <h2>Appetizers</h2>
+        <h2>Burger</h2>
         <div class="menu-item">
-            <span>Spring Rolls - $5.00</span>
-            <button onclick="addToCart('Spring Rolls', 5.00)">Add to Cart</button>
+            <span>Classic Veg Burger - 70 ₹ </span>
+            <button onclick="addToCart('Classic Veg Burger', 70.00)">Add to Cart</button>
         </div>
         <div class="menu-item">
-            <span>Garlic Bread - $3.00</span>
-            <button onclick="addToCart('Garlic Bread', 3.00)">Add to Cart</button>
+            <span>Paneer Tikka Burger - 90 ₹ </span>
+            <button onclick="addToCart('Paneer Tikka Burger', 90.00)">Add to Cart</button>
+        </div>
+        <div class="menu-item">
+            <span>Veg Cheesy Burger - 90 ₹ </span>
+            <button onclick="addToCart('Veg Cheesy Burger', 90.00)">Add to Cart</button>
+        </div>
+        <div class="menu-item">
+            <span>Double Patty Cheese Burger - 120 ₹ </span>
+            <button onclick="addToCart('Double Patty Cheese Burger', 120.00)">Add to Cart</button>
         </div>
     </div>
     <div class="menu-section">
@@ -425,7 +436,7 @@
             cart.forEach((item, index) => {
                 let cartItem = document.createElement('div');
                 cartItem.classList.add('cart-item');
-                cartItem.textContent = `${item.name} - $${item.price.toFixed(2)}`;
+                cartItem.textContent = `${item.name} - ₹${item.price.toFixed(2)}`;
                 const removeButton = document.createElement('button');
                 removeButton.textContent = 'Remove';
                 removeButton.onclick = () => removeItemFromCart(index);
@@ -433,7 +444,7 @@
                 cartContainer.appendChild(cartItem);
                 total += item.price;
             });
-            cartTotal.textContent = `Total: $${total.toFixed(2)}`;
+            cartTotal.textContent = `Total: ₹${total.toFixed(2)}`;
         }
     
         function placeOrder() {
@@ -451,10 +462,10 @@
             let orderDetails = `Table Number: ${tableNumber}\nOrder details:\n`;
             let total = 0;
             cart.forEach(item => {
-                orderDetails += `${item.name} - $${item.price.toFixed(2)}\n`;
+                orderDetails += `${item.name} - ₹${item.price.toFixed(2)}\n`;
                 total += item.price;
             });
-            orderDetails += `Total: $${total.toFixed(2)}`;
+            orderDetails += `Total: ₹${total.toFixed(2)}`;
     
             const encodedOrderDetails = encodeURIComponent(orderDetails);
             const whatsappNumber = "7741909127";  // Replace with the waiter's WhatsApp number

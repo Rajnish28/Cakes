@@ -160,7 +160,13 @@
                 return;
             }
 
-            let orderDetails = "Order details:\n";
+            const tableNumber = document.getElementById('table-number').value.trim();
+            if (!tableNumber) {
+                alert('Please enter your table number.');
+                return;
+            }
+    
+            let orderDetails = `Table Number: ${tableNumber}\nOrder details:\n`;
             let total = 0;
             cart.forEach(item => {
                 orderDetails += `${item.name} - $${item.price.toFixed(2)}\n`;

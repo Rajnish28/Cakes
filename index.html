@@ -1,210 +1,16 @@
-<!-- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Restaurant Menu</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f8f9fa;
-            margin: 0;
-            padding: 0;
-        }
-        h1, h2 {
-            color: #333;
-            text-align: center;
-        }
-        .menu-section, .cart-section {
-            max-width: 800px;
-            margin: 20px auto;
-            padding: 20px;
-            background-color: #fff;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
-        .menu-item {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 10px 0;
-            border-bottom: 1px solid #ddd;
-        }
-        .menu-item:last-child {
-            border-bottom: none;
-        }
-        .menu-item button {
-            padding: 10px 20px;
-            background-color: #007bff;
-            color: white;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-        .menu-item button:hover {
-            background-color: #0056b3;
-        }
-        .cart-item {
-            padding: 10px 0;
-            border-bottom: 1px solid #ddd;
-        }
-        .cart-item:last-child {
-            border-bottom: none;
-        }
-        .cart-section button {
-            width: 100%;
-            padding: 15px;
-            background-color: #28a745;
-            color: white;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 16px;
-            transition: background-color 0.3s ease;
-        }
-        .cart-section button:hover {
-            background-color: #218838;
-        }
-        .cart-total {
-            font-weight: bold;
-            text-align: right;
-            margin-top: 10px;
-        }
-        @media (max-width: 600px) {
-            .menu-item {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-            .menu-item button {
-                margin-top: 10px;
-                width: 100%;
-            }
-        }
-    </style>
-</head>
-<body>
-    <h1>Restaurant Menu</h1>
-
-    <div class="menu-section">
-        <h2>Appetizers</h2>
-        <div class="menu-item">
-            <span>Spring Rolls - $5.00</span>
-            <button onclick="addToCart('Spring Rolls', 5.00)">Add to Cart</button>
-        </div>
-        <div class="menu-item">
-            <span>Garlic Bread - $3.00</span>
-            <button onclick="addToCart('Garlic Bread', 3.00)">Add to Cart</button>
-        </div>
-    </div>
-    <div class="menu-section">
-        <h2>Main Courses</h2>
-        <div class="menu-item">
-            <span>Grilled Chicken - $12.00</span>
-            <button onclick="addToCart('Grilled Chicken', 12.00)">Add to Cart</button>
-        </div>
-        <div class="menu-item">
-            <span>Beef Steak - $15.00</span>
-            <button onclick="addToCart('Beef Steak', 15.00)">Add to Cart</button>
-        </div>
-    </div>
-    <div class="menu-section">
-        <h2>Desserts</h2>
-        <div class="menu-item">
-            <span>Cheesecake - $6.00</span>
-            <button onclick="addToCart('Cheesecake', 6.00)">Add to Cart</button>
-        </div>
-        <div class="menu-item">
-            <span>Brownie - $4.00</span>
-            <button onclick="addToCart('Brownie', 4.00)">Add to Cart</button>
-        </div>
-    </div>
-
-    <div class="cart-section">
-        <h2>Cart</h2>
-        <div id="cart-items"></div>
-        <div class="cart-total" id="cart-total">Total: $0.00</div>
-        <input type="text" id="table-number" class="table-number" placeholder="Enter your table number/Address">
-        <button onclick="placeOrder()">Place Order</button>
-        <button onclick="clearCart()">Clear Cart</button>
-    </div>
-
-    <script>
-        let cart = [];
-
-        function addToCart(name, price) {
-            cart.push({ name, price });
-            displayCart();
-        }
-
-        function displayCart() {
-            const cartContainer = document.getElementById('cart-items');
-            const cartTotal = document.getElementById('cart-total');
-            cartContainer.innerHTML = '';
-            let total = 0;
-            cart.forEach(item => {
-                let cartItem = document.createElement('div');
-                cartItem.classList.add('cart-item');
-                cartItem.textContent = `${item.name} - $${item.price.toFixed(2)}`;
-                cartContainer.appendChild(cartItem);
-                total += item.price;
-            });
-            cartTotal.textContent = `Total: $${total.toFixed(2)}`;
-        }
-
-        function placeOrder() {
-            if (cart.length === 0) {
-                alert('Your cart is empty!');
-                return;
-            }
-
-            const tableNumber = document.getElementById('table-number').value.trim();
-            if (!tableNumber) {
-                alert('Please enter your table number.');
-                return;
-            }
-    
-            let orderDetails = `Table Number: ${tableNumber}\nOrder details:\n`;
-            let total = 0;
-            cart.forEach(item => {
-                orderDetails += `${item.name} - $${item.price.toFixed(2)}\n`;
-                total += item.price;
-            });
-            orderDetails += `Total: $${total.toFixed(2)}`;
-
-            const encodedOrderDetails = encodeURIComponent(orderDetails);
-            const whatsappNumber = "7741909127";  // Replace with the waiter's WhatsApp number
-            const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodedOrderDetails}`;
-
-            // Open WhatsApp link
-            window.open(whatsappURL, '_blank');
-        }
-            function clearCart() {
-            cart = [];
-            displayCart();
-        }
-
-        function removeItemFromCart(index) {
-            cart.splice(index, 1);
-            displayCart();
-        }
-    </script>
-</body>
-</html>
- -->
-
- <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Restaurant Menu</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
     <style>
         /* Background and Layout */
         body {
             font-family: 'Roboto', sans-serif;
-            /* background: url('https://via.placeholder.com/1920x1080') no-repeat center center fixed; */
+            background: url('https://via.placeholder.com/1920x1080') no-repeat center center fixed;
             background-image: url(image.jpg);
             background-size: cover;
             margin: 0;
@@ -345,89 +151,629 @@
             font-size: 16px;
         }
 
+        /* Navbar */
+        nav {
+            padding: 10px;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            backdrop-filter: blur(10px);
+            background-color: rgba(51, 51, 51, 0.8);
+        }
+
+        nav .menu-icon {
+            display: block;
+        }
+
+        nav .menu-icon div {
+            width: 25px;
+            height: 3px;
+            background-color: #fff;
+            margin: 5px 0;
+            transition: opacity 0.3s;
+        }
+
+        nav .menu-icon:hover div {
+            opacity: 1;
+        }
+
+        nav ul {
+            display: none;
+            flex-direction: column;
+            width: 100%;
+            text-align: left;
+            backdrop-filter: blur(10px);
+            background-color: rgba(51, 51, 51, 0.8);
+            position: absolute;
+            top: 50px;
+            left: 0;
+            z-index: 1;
+        }
+
+        nav ul li {
+            margin: 0 10px;
+            position: relative;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            background-color: #555;
+        }
+
+        .dropdown-menu {
+            position: static;
+            display: block;
+            padding: 0;
+            box-shadow: none;
+        }
+
+        .dropdown-menu a {
+            display: block;
+            padding: 5px 10px;
+            white-space: nowrap;
+        }
+
+        .dropdown-menu a:hover {
+            background-color: #555;
+        }
+
         /* Responsive Design */
-        @media (max-width: 600px) {
-            .menu-item {
+        @media (max-width: 768px) {
+            nav .menu-icon {
+                display: block;
+            }
+
+            nav ul {
+                display: none;
                 flex-direction: column;
-                align-items: flex-start;
+                width: 100%;
+                text-align: left;
+                backdrop-filter: blur(10px);
+                background-color: rgba(51, 51, 51, 0.8);
+                position: absolute;
+                top: 50px;
+                left: 0;
+                z-index: 1;
             }
 
-            .menu-item button {
-                margin-top: 10px;
+            nav ul li {
                 width: 100%;
             }
 
-            .cart-section button {
+            nav ul li a {
                 width: 100%;
-                margin-bottom: 10px;
+                padding: 10px;
+                box-sizing: border-box;
             }
+
+            .dropdown-menu {
+                position: static;
+                display: block;
+                padding: 0;
+                box-shadow: none;
+            }
+
+            .dropdown-menu a {
+                padding: 10px;
+            }
+        }
+
+        /* Logo */
+        .logo {
+            max-width: 150px;
+        }
+
+        /* Section Images */
+        .menu-section {
+            position: relative;
+        }
+
+        .menu-section img {
+            width: 100%;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        /* Cart Icon */
+        #cart-icon
+        {
+            position: fixed;
+            bottom: 2px;
+            right: 20px;
+            background-color: #000000;
+            color: white;
+            width: 50px;
+            height: 45px;
+            border-radius: 10%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            z-index: 1000; 
+        }
+        #cart-count{
+            padding: 5px;
         }
     </style>
 </head>
 <body>
-    <!-- <nav>
-        <a href="">cart </a>
-    </nav> -->
-    <h1> CAKES & CAFE</h1>
-    <div class="menu-section">
-        <h2>Burger</h2>
+
+
+    <h1 id="home">CAKES & CAFE</h1>
+    <nav>
+        <!-- <img src="https://via.placeholder.com/150x50" alt="Restaurant Logo" class="logo"> -->
+        <div class="menu-icon" onclick="toggleMenu()">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <ul>
+            <li type="none"><a href="#" onclick="closeMenu()"></a>
+                <div class="dropdown-menu">
+                    <a href="#home" onclick="closeMenu()">Home</a>
+                    <a href="#pizza-section" onclick="closeMenu()">Pizza</a>
+                    <a href="#sandwich-section"onclick="closeMenu()">Sandwich</a>
+                    <a href="#french-fries-section"onclick="closeMenu()">French Fries</a>
+                    <a href="#hotdog-section"onclick="closeMenu()">Hotdog</a>                    
+                    <a href="#burger-section"onclick="closeMenu()">Burgers</a>
+                    <a href="#springroll-section"onclick="closeMenu()">SpringRoll</a>
+                    <a href="#pasta-section"onclick="closeMenu()">Pasta</a>
+                    <a href="#shake-section"onclick="closeMenu()">Shakes</a>
+                    <!-- <a href="#cart-section"onclick="closeMenu()">Cart</a> -->
+                </div>
+            </li>
+        </ul>
+             
+    <div id="cart-icon" onclick="scrollToSection('cart-section')">
+        <i class="fas fa-shopping-cart"></i>
+        <span id="cart-count">0</span>
+    </div>
+    </nav><br><br><br><br><br>
+
+
+    <!-- <div id="home" class="menu-section"> -->
+        <h2 id="home">WELCOME  </h2><br><br>
+        <p>Welcome to our restaurant! We serve the finest dishes made with the freshest ingredients. Our mission is to provide a memorable dining experience for all our guests.</p><br><br><br><br><br><br><br><br><br><br>
+    <!-- </div> -->
+           
+
+                    <!-- PIZZA SECTION START -->
+
+    <div id="pizza-section" class="menu-section">
+        <h2>Pizza</h2>
+
         <div class="menu-item">
-            <span>Classic Veg Burger - 70 ₹ </span>
+            <span>Onion Pizza</span>
+            <div>
+                <button onclick="addToCart('Onion Pizza (Medium)', 130.00)">Medium - 130 ₹</button><br><br>
+                <button onclick="addToCart('Onion Pizza (Large)', 220.00)">Large - 220 ₹</button>
+            </div>
+        </div>
+        <div class="menu-item">
+            <span>Classic Margherita Pizza</span>
+            <div>
+                <button onclick="addToCart('Classic Margherita Pizza (Medium)', 130.00)">Medium - 130 ₹</button><br><br>
+                <button onclick="addToCart('Classic Margherita Pizza (Large)', 220.00)">Large - 220 ₹</button>
+            </div>
+        </div>
+        <div class="menu-item">
+            <span>Capsicum Pizza</span>
+            <div>
+                <button onclick="addToCart('Capsicum Pizza (Medium)', 140.00)">Medium - 140 ₹</button><br><br>
+                <button onclick="addToCart('Capsicum Pizza (Large)', 220.00)">Large - 220 ₹</button>
+            </div>
+        </div>
+        <div class="menu-item">
+            <span>Mexican Pizza</span>
+            <div>
+            <button onclick="addToCart('Mexican Pizza (Medium)', 150.00)">Medium - 150 ₹</button><br><br>
+            <button onclick="addToCart('Mexican Pizza (Large)', 240.00)">Large - 240 ₹</button>
+            </div>
+        </div>
+        <div class="menu-item">
+            <span>Mix Veg Pizza</span>
+            <div>
+            <button onclick="addToCart('Mix Veg Pizza (Medium)', 160.00)">Medium - 160 ₹</button><br><br>
+            <button onclick="addToCart('Mix Veg Pizza (Large)', 240.00)">Large - 240 ₹</button>
+            </div>
+        </div>
+        <div class="menu-item">
+            <span>Mix Veg BBQ Pizza</span>
+            <div>
+            <button onclick="addToCart('Mix Veg BBQ Pizza (Medium)', 180.00)">Medium - 180 ₹</button><br><br>
+            <button onclick="addToCart('Mix Veg BBQ Pizza (Large)', 260.00)">Large - 260 ₹</button>
+            </div>
+        </div>
+        <div class="menu-item">
+            <span>American Corn Pizza</span>
+            <div>
+            <button onclick="addToCart('American Corn Pizza (Medium)', 180.00)">Medium - 180 ₹</button><br><br>
+            <button onclick="addToCart('American Corn Pizza (Large)', 260.00)">Large - 260 ₹</button>
+            </div>
+        </div>
+        <div class="menu-item">
+            <span>Mashroom Pizza</span>
+            <div>
+            <button onclick="addToCart('Mashroom Pizza (Medium)', 180.00)">Medium - 180 ₹</button><br><br>
+            <button onclick="addToCart('Mashroom Pizza (Large)', 260.00)">Large - 260 ₹</button>
+            </div>
+        </div>
+        <div class="menu-item">
+            <span>Manchurian Pizza</span>
+            <div>
+            <button onclick="addToCart('Manchurian Pizza (Medium)', 200.00)">Medium - 200 ₹</button><br><br>
+            <button onclick="addToCart('Manchurian Pizza (Large)', 280.00)">Large - 280 ₹</button>
+            </div>
+        </div>
+        <div class="menu-item">
+            <span>Paneer Tikka Pizza</span>
+            <div>
+                <button onclick="addToCart('Paneer Tikka Pizza (Medium)', 200.00)">Medium - 200 ₹</button><br><br>
+                <button onclick="addToCart('Paneer Tikka Pizza (Large)', 280.00)">Large - 280 ₹</button>
+            </div>
+        </div>
+        <div class="menu-item">
+            <span>Paneer BBQ Pizza</span>
+            <div>
+                <button onclick="addToCart('Paneer BBQ Pizza (Medium)', 220.00)">Medium - 220 ₹</button><br><br>
+                <button onclick="addToCart('Paneer BBQ Pizza (Large)', 300.00)">Large - 300 ₹</button>
+            </div>
+        </div>
+        <div class="menu-item">
+            <span>Paneer Corn Pizza</span>
+            <div>
+                <button onclick="addToCart('Paneer Corn Pizza (Medium)', 220.00)">Medium - 220 ₹</button><br><br>
+                <button onclick="addToCart('Paneer Corn Pizza (Large)', 300.00)">Large - 300 ₹</button>
+            </div>
+        </div>
+        <div class="menu-item">
+            <span>Maggi Pizza</span>
+            <div>
+            <button onclick="addToCart('Maggi Pizza (Medium)', 220.00)">Medium - 220 ₹</button><br><br>
+            <button onclick="addToCart('Maggi Pizza (Large)', 300.00)">Large - 300 ₹</button>
+            </div>
+        </div>
+        <div class="menu-item">
+            <span>Red Sauce Pasta Pizza</span>
+            <div>
+                <button onclick="addToCart('Red Sauce Pasta Pizza (Medium)', 240.00)">Medium - 240 ₹</button><br><br>
+                <button onclick="addToCart('Red Sauce Pasta Pizza (Large)', 320.00)">Large - 320 ₹</button>
+            </div>
+        </div>
+        <div class="menu-item">
+            <span>White Sauce Pasta Pizza</span>
+            <div>
+                <button onclick="addToCart('White Sauce Pasta Pizza (Medium)', 240.00)">Medium - 240 ₹</button><br><br>
+                <button onclick="addToCart('White Sauce Pasta Pizza (Large)', 320.00)">Large - 320 ₹</button>
+            </div>
+        </div>
+        <div class="menu-item">
+            <span>Paneer Pasta Pizza</span>
+            <div>
+                <button onclick="addToCart('Paneer Pasta Pizza (Medium)', 250.00)">Medium - 250 ₹</button><br><br>
+                <button onclick="addToCart('Paneer Pasta Pizza (Large)', 340.00)">Large - 340 ₹</button>
+            </div>
+        </div>
+        <div class="menu-item">
+            <span>Overloaded Cheese Burst Pizza</span>
+            <div>
+                <button onclick="addToCart('Overloaded Cheese Burst Pizza (Medium)', 300.00)">Medium - 250 ₹</button><br><br>
+                <button onclick="addToCart('Overloaded Cheese Burst Pizza (Large)', 400.00)">Large - 340 ₹</button>
+            </div>
+        </div>
+
+    </div>
+
+                    <!-- BURGER SECTION START -->
+
+    <div id="burger-section" class="menu-section">
+        <h2>Burgers</h2>
+        <div class="menu-item">
+            <span>Classic Veg Burger - 70 ₹</span>
             <button onclick="addToCart('Classic Veg Burger', 70.00)">Add to Cart</button>
         </div>
         <div class="menu-item">
-            <span>Paneer Tikka Burger - 90 ₹ </span>
-            <button onclick="addToCart('Paneer Tikka Burger', 90.00)">Add to Cart</button>
+            <span>Mexican Veg Burger - 80 ₹</span>
+            <button onclick="addToCart('Mexican Veg Burger', 80.00)">Add to Cart</button>
         </div>
         <div class="menu-item">
-            <span>Veg Cheesy Burger - 90 ₹ </span>
+            <span>Veg Cheesy Burger - 90 ₹</span>
             <button onclick="addToCart('Veg Cheesy Burger', 90.00)">Add to Cart</button>
         </div>
         <div class="menu-item">
-            <span>Double Patty Cheese Burger - 120 ₹ </span>
+            <span>Paneer Tikka Burger - 90 ₹</span>
+            <button onclick="addToCart('Paneer Tikka Burger', 90.00)">Add to Cart</button>
+        </div>
+        <div class="menu-item">
+            <span>Mexican Cheesy Burger - 90 ₹</span>
+            <button onclick="addToCart('Mexican Cheesy Burger', 90.00)">Add to Cart</button>
+        </div>
+        <div class="menu-item">
+            <span>Double Patty Burger - 100 ₹</span>
+            <button onclick="addToCart('Double Patty Burger', 100.00)">Add to Cart</button>
+        </div>
+        <div class="menu-item">
+            <span>Paneer Cheese Burger - 110 ₹</span>
+            <button onclick="addToCart('Paneer Cheese Burger', 110.00)">Add to Cart</button>
+        </div>
+        <div class="menu-item">
+            <span>Double Patty Cheese Burger - 120 ₹</span>
             <button onclick="addToCart('Double Patty Cheese Burger', 120.00)">Add to Cart</button>
         </div>
-    </div>
-    <div class="menu-section">
-        <h2>Main Courses</h2>
         <div class="menu-item">
-            <span>Grilled Chicken - $12.00</span>
-            <button onclick="addToCart('Grilled Chicken', 12.00)">Add to Cart</button>
-        </div>
-        <div class="menu-item">
-            <span>Beef Steak - $15.00</span>
-            <button onclick="addToCart('Beef Steak', 15.00)">Add to Cart</button>
-        </div>
-    </div>
-    <div class="menu-section">
-        <h2>Desserts</h2>
-        <div class="menu-item">
-            <span>Cheesecake - $6.00</span>
-            <button onclick="addToCart('Cheesecake', 6.00)">Add to Cart</button>
-        </div>
-        <div class="menu-item">
-            <span>Brownie - $4.00</span>
-            <button onclick="addToCart('Brownie', 4.00)">Add to Cart</button>
+            <span>Club Burger - 140 ₹</span>
+            <button onclick="addToCart('Club Burger', 140.00)">Add to Cart</button>
         </div>
     </div>
 
-    <div class="cart-section">
-        <h2>Cart</h2>
-        <div id="cart-items"></div>
-        <div class="cart-total" id="cart-total">Total: $0.00</div>
-        <input type="text" id="table-number" class="table-number" placeholder="Enter your table number/Address">
-        <button onclick="placeOrder()">Place Order</button>
-        <button onclick="clearCart()">Clear Cart</button>
+                    <!-- SANDWICH SECTION START -->
+
+    <div id="sandwich-section" class="menu-section">
+        <h2>Sandwich</h2>
+        <div class="menu-item">
+            <span>Choclate Grilled Sandwich</span>
+            <div>
+                <button onclick="addToCart('Choclate Grilled Sandwich (Regular)', 70.00)">Regular - 70 ₹</button><br><br>
+                <button onclick="addToCart('Choclate Grilled Sandwich (Jumbo)', 100.00)">Jumbo - 100 ₹</button>
+            </div>
+        </div>
+        <div class="menu-item">
+            <span>Crispy Veg Sandwich</span>
+            <div>
+                <button onclick="addToCart('Crispy Veg Sandwich (Regular)', 70.00)">Regular - 70 ₹</button><br><br>
+                <button onclick="addToCart('Crispy Veg Sandwich (Jumbo)', 110.00)">Jumbo - 110 ₹</button>
+            </div>
+        </div>
+        <div class="menu-item">
+            <span>Veg Cheesy Sandwich</span>
+            <div>
+                <button onclick="addToCart('Veg Cheesy Sandwich (Regular)',80.00)">Regular - 80 ₹</button><br><br>
+                <button onclick="addToCart('Veg Cheesy Sandwich (Jumbo)', 120.00)">Jumbo - 120 ₹</button>
+            </div>
+        </div>
+        <div class="menu-item">
+            <span>Corn Cheese Sandwich</span>
+            <div>
+                <button onclick="addToCart('Corn Cheese Sandwich (Regular)',90.00)">Regular - 90 ₹</button><br><br>
+                <button onclick="addToCart('Corn Cheese Sandwich (Jumbo)', 150.00)">Jumbo - 150 ₹</button>
+            </div>
+        </div>
+        <div class="menu-item">
+            <span>Paneer Cheese Sandwich</span>
+            <div>
+                <button onclick="addToCart('Paneer Cheese Sandwich (Regular)',90.00)">Regular - 90 ₹</button><br><br>
+                <button onclick="addToCart('Paneer Cheese Sandwich (Jumbo)', 150.00)">Jumbo - 150 ₹</button>
+            </div>
+        </div>
+        <div class="menu-item">
+            <span>Paneer Corn Cheese Sandwich</span>
+            <div>
+                <button onclick="addToCart('Paneer Corn Cheese Sandwich (Regular)',90.00)">Regular - 90 ₹</button><br><br>
+                <button onclick="addToCart('Paneer Corn Cheese Sandwich (Jumbo)', 150.00)">Jumbo - 150 ₹</button>
+            </div>
+        </div>
+        <div class="menu-item">
+            <span>Peri-Peri Sandwich</span>
+            <div>
+                <button onclick="addToCart('Peri-Peri Sandwich (Regular)',90.00)">Regular - 90 ₹</button><br><br>
+                <button onclick="addToCart('Peri-Peri Sandwich (Jumbo)', 150.00)">Jumbo - 150 ₹</button>
+            </div>
+        </div>
+        <div class="menu-item">
+            <span>BBQ Paneer Sandwich</span>
+            <div>
+                <button onclick="addToCart('BBQ Paneer Sandwich (Regular)',100.00)">Regular - 100 ₹</button><br><br>
+                <button onclick="addToCart('BBQ Paneer Sandwich (Jumbo)', 160.00)">Jumbo - 160 ₹</button>
+            </div>
+        </div>
+        <div class="menu-item">
+            <span>Hot N Crispy Sandwich</span>
+            <div>
+                <button onclick="addToCart('Hot N Crispy Sandwich (Regular)',100.00)">Regular - 100 ₹</button><br><br>
+                <button onclick="addToCart('Hot N Crispy Sandwich (Jumbo)', 160.00)">Jumbo - 160 ₹</button>
+            </div>
+        </div>
+        <div class="menu-item">
+            <span>Overloaded Veg Cheesy Sandwich</span>
+            <div>
+                <button onclick="addToCart('Overloaded Veg Cheesy Sandwich (Regular)',180.00)">Regular - 180 ₹</button>
+            </div>
+        </div>
     </div>
 
+                    <!-- FRENCH-FRIES SECTION START -->
+
+      <div id="french-fries-section" class="menu-section">
+        <h2>French Fries</h2>
+        <div class="menu-item">
+            <span>Salted French Fries - 70.00 ₹</span>
+            <button onclick="addToCart('Salted French Fries', 70.00)">Add to Cart</button>
+        </div>
+        <div class="menu-item">
+            <span>Peri Peri French Fries - 80.00 ₹</span>
+            <button onclick="addToCart('Peri Peri French Fries', 80.00)">Add to Cart</button>
+        </div>
+        <div class="menu-item">
+            <span>Masala French Fries - 100.00 ₹</span>
+            <button onclick="addToCart('Masala French Fries', 100.00)">Add to Cart</button>
+        </div>
+        <div class="menu-item">
+            <span>Chilli Cheesy Fries - 120.00 ₹</span>
+            <button onclick="addToCart('Chilli Cheesy Fries', 120.00)">Add to Cart</button>
+        </div>
+        <div class="menu-item">
+            <span>BBQ Cheesy Fries - 120.00 ₹</span>
+            <button onclick="addToCart('BBQ Cheesy Fries', 120.00)">Add to Cart</button>
+        </div>
+      </div>
+
+                    <!-- HOTDOG SECTION START -->
+
+      <div id="hotdog-section" class="menu-section">
+        <h2>Hotdog</h2>
+        <div class="menu-item">
+            <span>Veg Hotdog - 50.00 ₹</span>
+            <button onclick="addToCart('Veg Hotdog', 50.00)">Add to Cart</button>
+        </div>
+        <div class="menu-item">
+            <span>Manchurian Hotdog - 60.00 ₹</span>
+            <button onclick="addToCart('Manchurian Hotdog', 60.00)">Add to Cart</button>
+        </div>
+        <div class="menu-item">
+            <span>Paneer Hotdog - 70.00 ₹</span>
+            <button onclick="addToCart('Paneer Hotdog', 70.00)">Add to Cart</button>
+        </div>
+        <div class="menu-item">
+            <span>Cheesy Veg Hotdog - 70.00 ₹</span>
+            <button onclick="addToCart('Cheesy Veg Hotdog', 70.00)">Add to Cart</button>
+        </div>
+        <div class="menu-item">
+            <span>Cheesy Manchurian Hotdog - 80.00 ₹</span>
+            <button onclick="addToCart('Cheesy Manchurian Hotdog', 80.00)">Add to Cart</button>
+        </div>
+        <div class="menu-item">
+            <span>Cheesy Paneer Hotdog - 90.00 ₹</span>
+            <button onclick="addToCart('Cheesy Paneer Hotdog', 90.00)">Add to Cart</button>
+        </div>
+      </div>
+
+      <div id="springroll-section" class="menu-section">
+          <h2>SpringRoll</h2>
+          <div class="menu-item">
+              <span>Mix Veg Cheesy Roll - 100.00 ₹</span>
+              <button onclick="addToCart('Mix Veg Cheesy Roll', 100.00)">Add to Cart</button>
+          </div>
+          <div class="menu-item">
+              <span>Manchurian Cheesy Roll - 100.00 ₹</span>
+              <button onclick="addToCart('Manchurian Cheesy Roll', 120.00)">Add to Cart</button>
+          </div>
+          <div class="menu-item">
+            <span>Paneer Cheesy Roll - 120.00 ₹</span>
+            <button onclick="addToCart('Paneer Cheesy Roll', 120.00)">Add to Cart</button>
+        </div>
+        <div class="menu-item">
+            <span>Sweet Corn Cheesy Roll - 120.00 ₹</span>
+            <button onclick="addToCart('Sweet Corn Cheesy Roll', 120.00)">Add to Cart</button>
+        </div>
+      </div>
+
+      <div id="pasta-section" class="menu-section">
+        <h2>Pasta</h2>
+        <div class="menu-item">
+            <span>Italian Mix Veg Pasta - 140.00 ₹</span>
+            <button onclick="addToCart('Italian Mix Veg Pasta', 140.00)">Add to Cart</button>
+        </div>
+        <div class="menu-item">
+            <span>4 Cheese Pasta - 120.00 ₹</span>
+            <button onclick="addToCart('4 Cheese Pasta', 120.00)">Add to Cart</button>
+        </div>
+        <div class="menu-item">
+            <span>Red Sauce Pasta - 120.00 ₹</span>
+            <button onclick="addToCart('Red Sauce Pasta', 120.00)">Add to Cart</button>
+        </div>
+        <div class="menu-item">
+            <span>White Sauce Pasta - 120.00 ₹</span>
+            <button onclick="addToCart('Red Sauce Pasta', 120.00)">Add to Cart</button>
+        </div>
+
+
+        <div id="shake-section" class="menu-section">
+            <h2>Milk Shakes & Thick Shakes</h2>
+            <div class="menu-item">
+                <span>Cold Coffee - 80.00 ₹</span>
+                <button onclick="addToCart('Cold Coffee', 80.00)">Add to Cart</button>
+            </div>
+            <div class="menu-item">
+                <span>Strawberry Shake - 80.00 ₹</span>
+                <button onclick="addToCart('Strawberry Shake', 80.00)">Add to Cart</button>
+            </div>
+            <div class="menu-item">
+                <span>Mango Shake - 80.00 ₹</span>
+                <button onclick="addToCart('Mango Shake', 80.00)">Add to Cart</button>
+            </div>
+            <div class="menu-item">
+                <span>Butter Scotch Shake - 90.00 ₹</span>
+                <button onclick="addToCart('Butter Scotch Shake', 90.00)">Add to Cart</button>
+            </div>
+            <div class="menu-item">
+                <span>KitKat Shake - 100.00 ₹</span>
+                <button onclick="addToCart('KitKAt Shake', 100.00)">Add to Cart</button>
+            </div>
+            <div class="menu-item">
+                <span>Oreo Shake - 100.00 ₹</span>
+                <button onclick="addToCart('Oreo Shake', 100.00)">Add to Cart</button>
+            </div>
+            <div class="menu-item">
+                <span>Pan Thick Shake - 100.00 ₹</span>
+                <button onclick="addToCart('Pan Thick Shake', 100.00)">Add to Cart</button>
+            </div>
+            <div class="menu-item">
+                <span>Mix Fruit Thick Shake - 100.00 ₹</span>
+                <button onclick="addToCart('Mix Fruit Thick Shake', 100.00)">Add to Cart</button>
+            </div>
+            <div class="menu-item">
+                <span>Choco Chips Thick Shake - 100.00 ₹</span>
+                <button onclick="addToCart('Choco Chips Thick Shake', 100.00)">Add to Cart</button>
+            </div>
+            <div class="menu-item">
+                <span>Badam Thick Shake - 130.00 ₹</span>
+                <button onclick="addToCart('Badam Thick Shake', 130.00)">Add to Cart</button>
+            </div>
+            <div class="menu-item">
+                <span>Mix Dry Fruit Thick Shake - 150.00 ₹</span>
+                <button onclick="addToCart('Mix Dry Fruit Thick Shake', 150.00)">Add to Cart</button>
+            </div>
+        </div>
+
+        <!-- <div id="cart-icon" onclick="showCart()">
+            <i class="fas fa-shopping-cart"></i>
+            <span id="cart-count">0</span>
+        </div> -->
+
+   <!-- Cart Section -->
+   <div id="cart-section" class="cart-section">
+    <h2>Cart</h2>
+    <div id="cart-items"></div>
+    <div class="cart-total" id="cart-total">Total: ₹0.00</div>
+    <input type="text" id="table-number" class="table-number" placeholder="Enter your table number / Your Address">
+    <button onclick="placeOrder()">Place Order</button>
+    <button onclick="clearCart()">Clear Cart</button>
+</div>
+
+
+
+    <div id="contact" class="menu-section">
+        <h2>Contact Us</h2>
+        <p>If you have any questions or feedback, feel free to reach out to us. We're here to help!</p>
+    </div>
     <script>
         let cart = [];
-    
+
+        function toggleMenu() {
+            const navUl = document.querySelector('nav ul');
+            navUl.style.display = navUl.style.display === 'flex' ? 'none' : 'flex';
+        }
+
+        function closeMenu() {
+            const navUl = document.querySelector('nav ul');
+            navUl.style.display = 'none';
+        }
+
         function addToCart(name, price) {
             cart.push({ name, price });
             displayCart();
         }
-    
+
         function displayCart() {
             const cartContainer = document.getElementById('cart-items');
             const cartTotal = document.getElementById('cart-total');
@@ -445,46 +791,61 @@
                 total += item.price;
             });
             cartTotal.textContent = `Total: ₹${total.toFixed(2)}`;
+            document.getElementById('cart-count').textContent = cart.length;
         }
-    
+
         function placeOrder() {
             const tableNumber = document.getElementById('table-number').value.trim();
             if (!tableNumber) {
                 alert('Please enter your table number!');
                 return;
             }
-    
+
             if (cart.length === 0) {
                 alert('Your cart is empty!');
                 return;
             }
-    
-            let orderDetails = `Table Number: ${tableNumber}\nOrder details:\n`;
+
+            let orderDetails = `Table Number / Your Address: ${tableNumber}\nOrder details:\n`;
             let total = 0;
             cart.forEach(item => {
                 orderDetails += `${item.name} - ₹${item.price.toFixed(2)}\n`;
                 total += item.price;
             });
             orderDetails += `Total: ₹${total.toFixed(2)}`;
-    
+
             const encodedOrderDetails = encodeURIComponent(orderDetails);
             const whatsappNumber = "7741909127";  // Replace with the waiter's WhatsApp number
             const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodedOrderDetails}`;
-    
+
             // Open WhatsApp link
             window.open(whatsappURL, '_blank');
         }
-    
+
         function clearCart() {
             cart = [];
             displayCart();
         }
-    
+
         function removeItemFromCart(index) {
             cart.splice(index, 1);
             displayCart();
         }
+
+        function scrollToSection(sectionId) {
+            const element = document.getElementById(sectionId);
+            const offset = 70; // Adjust this value according to your fixed header height
+            const bodyRect = document.body.getBoundingClientRect().top;
+            const elementRect = element.getBoundingClientRect().top;
+            const elementPosition = elementRect - bodyRect;
+            const offsetPosition = elementPosition - offset;
+
+            window.scrollTo({
+                top: offsetPosition,
+                behavior: "smooth"
+            });
+        }
     </script>
-    
+
 </body>
 </html>

@@ -49,6 +49,10 @@
 
         /* Typography */
         h1 {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 20px 0;
             font-size: 3em;
             margin-top: 20px;
         }
@@ -58,7 +62,10 @@
         }
 
         .menu-item span {
+            
             font-size: 1.2em;
+            font-weight:bolder ;
+            
         }
 
         /* Menu Items */
@@ -69,6 +76,7 @@
             padding: 10px 0;
             border-bottom: 1px solid #444;
             transition: transform 0.3s, box-shadow 0.3s;
+            /* backdrop-filter: blur(1.5px); */
         }
 
         .menu-item:hover {
@@ -149,6 +157,71 @@
             border-radius: 4px;
             border: 1px solid #ccc;
             font-size: 16px;
+        }
+
+        #pizza-section{        
+            background-image: url(pizza1.jpg);
+            background-size: cover;
+            background-position: center;
+            
+        
+        }
+
+        #burger-section{
+                        background-image: url(burger3.jpg);
+            background-size: inherit;
+            background-position: bottom;
+
+        }
+
+        #sandwich-section{
+            
+            background-image: url(sandwich2.jpg);
+            background-size: cover;
+            background-position: bottom;
+
+        }
+        #french-fries-section{
+            
+            background-image: url(frenchfrie2.jpg);
+            background-size: cover;
+            background-position: top;
+            
+        }
+        #pasta-section{
+            background-image: url(pasta3.jpg);
+            background-size: cover;
+            background-position: center;
+        }
+
+        #hotdog-section{
+            background-image: url(hotdog1.jpg);
+            background-size: cover;
+            background-position: center;
+        }
+
+        #shake-section{
+            background-image: url(shake2.jpg);
+            background-size: cover;
+            background-position: center;
+        }
+
+        #springroll-section{
+            background-image: url(rolls1.jpg);
+            background-size: cover;
+            background-position: center;
+        }
+
+        #chinese-section{
+            background-image: url(chinese1.jpg);
+            background-size: cover;
+            background-position: top;
+        }
+
+        #combo-section{
+            background-image: url(combo1.jpg);
+            background-size: cover;
+            background-position: bottom;
         }
 
         /* Navbar */
@@ -270,8 +343,12 @@
 
         /* Logo */
         .logo {
-            max-width: 150px;
+        margin-right: 10px;
+        width: 60px;
+        height:fit-content;
+        border-radius: 50%;
         }
+        
 
         /* Section Images */
         .menu-section {
@@ -309,9 +386,12 @@
 <body>
 
 
-    <h1 id="home">CAKES & CAFE</h1>
+    <h1 id="home">
+        <img src="logo.png" alt="Restaurant Logo" class="logo">
+        CAKES & CAFE
+    </h1>
     <nav>
-        <!-- <img src="https://via.placeholder.com/150x50" alt="Restaurant Logo" class="logo"> -->
+        
         <div class="menu-icon" onclick="toggleMenu()">
             <div></div>
             <div></div>
@@ -323,12 +403,14 @@
                     <a href="#home" onclick="closeMenu()">Home</a>
                     <a href="#pizza-section" onclick="closeMenu()">Pizza</a>
                     <a href="#sandwich-section"onclick="closeMenu()">Sandwich</a>
-                    <a href="#french-fries-section"onclick="closeMenu()">French Fries</a>
+                    <a href="#french-fries-section"onclick="closeMenu()">French Fries & Appetizer</a>
                     <a href="#hotdog-section"onclick="closeMenu()">Hotdog</a>                    
                     <a href="#burger-section"onclick="closeMenu()">Burgers</a>
                     <a href="#springroll-section"onclick="closeMenu()">SpringRoll</a>
+                    <a href="#chinese-section"onclick="closeMenu()">Chinese</a>
                     <a href="#pasta-section"onclick="closeMenu()">Pasta</a>
                     <a href="#shake-section"onclick="closeMenu()">Shakes</a>
+                    <a href="#combo-section"onclick="closeMenu()">Combos</a>
                     <!-- <a href="#cart-section"onclick="closeMenu()">Cart</a> -->
                 </div>
             </li>
@@ -594,26 +676,38 @@
                     <!-- FRENCH-FRIES SECTION START -->
 
       <div id="french-fries-section" class="menu-section">
-        <h2>French Fries</h2>
+        <h2>French Fries & Appetizer</h2>
         <div class="menu-item">
-            <span>Salted French Fries - 70.00 ₹</span>
+            <span>Salted French Fries - 70 ₹</span>
             <button onclick="addToCart('Salted French Fries', 70.00)">Add to Cart</button>
         </div>
         <div class="menu-item">
-            <span>Peri Peri French Fries - 80.00 ₹</span>
+            <span>Veggie Nuggets - 70 ₹</span>
+            <button onclick="addToCart('Veggie Nuggets', 70.00)">Add to Cart</button>
+        </div>
+        <div class="menu-item">
+            <span>Peri Peri French Fries - 80 ₹</span>
             <button onclick="addToCart('Peri Peri French Fries', 80.00)">Add to Cart</button>
         </div>
         <div class="menu-item">
-            <span>Masala French Fries - 100.00 ₹</span>
+            <span>Garlic Bread - 90 ₹</span>
+            <button onclick="addToCart('Garlic Bread', 90.00)">Add to Cart</button>
+        </div>
+        <div class="menu-item">
+            <span>Masala French Fries - 100 ₹</span>
             <button onclick="addToCart('Masala French Fries', 100.00)">Add to Cart</button>
         </div>
         <div class="menu-item">
-            <span>Chilli Cheesy Fries - 120.00 ₹</span>
+            <span>Chilli Cheesy Fries - 120 ₹</span>
             <button onclick="addToCart('Chilli Cheesy Fries', 120.00)">Add to Cart</button>
         </div>
         <div class="menu-item">
-            <span>BBQ Cheesy Fries - 120.00 ₹</span>
+            <span>BBQ Cheesy Fries - 120 ₹</span>
             <button onclick="addToCart('BBQ Cheesy Fries', 120.00)">Add to Cart</button>
+        </div>
+        <div class="menu-item">
+            <span>Cheesy Garlic Bread - 130 ₹</span>
+            <button onclick="addToCart('Cheesy Garlic Bread', 130.00)">Add to Cart</button>
         </div>
       </div>
 
@@ -622,27 +716,27 @@
       <div id="hotdog-section" class="menu-section">
         <h2>Hotdog</h2>
         <div class="menu-item">
-            <span>Veg Hotdog - 50.00 ₹</span>
+            <span>Veg Hotdog - 50 ₹</span>
             <button onclick="addToCart('Veg Hotdog', 50.00)">Add to Cart</button>
         </div>
         <div class="menu-item">
-            <span>Manchurian Hotdog - 60.00 ₹</span>
+            <span>Manchurian Hotdog - 60 ₹</span>
             <button onclick="addToCart('Manchurian Hotdog', 60.00)">Add to Cart</button>
         </div>
         <div class="menu-item">
-            <span>Paneer Hotdog - 70.00 ₹</span>
+            <span>Paneer Hotdog - 70 ₹</span>
             <button onclick="addToCart('Paneer Hotdog', 70.00)">Add to Cart</button>
         </div>
         <div class="menu-item">
-            <span>Cheesy Veg Hotdog - 70.00 ₹</span>
+            <span>Cheesy Veg Hotdog - 70 ₹</span>
             <button onclick="addToCart('Cheesy Veg Hotdog', 70.00)">Add to Cart</button>
         </div>
         <div class="menu-item">
-            <span>Cheesy Manchurian Hotdog - 80.00 ₹</span>
+            <span>Cheesy Manchurian Hotdog - 80 ₹</span>
             <button onclick="addToCart('Cheesy Manchurian Hotdog', 80.00)">Add to Cart</button>
         </div>
         <div class="menu-item">
-            <span>Cheesy Paneer Hotdog - 90.00 ₹</span>
+            <span>Cheesy Paneer Hotdog - 90 ₹</span>
             <button onclick="addToCart('Cheesy Paneer Hotdog', 90.00)">Add to Cart</button>
         </div>
       </div>
@@ -650,95 +744,154 @@
       <div id="springroll-section" class="menu-section">
           <h2>SpringRoll</h2>
           <div class="menu-item">
-              <span>Mix Veg Cheesy Roll - 100.00 ₹</span>
+              <span>Mix Veg Cheesy Roll - 100 ₹</span>
               <button onclick="addToCart('Mix Veg Cheesy Roll', 100.00)">Add to Cart</button>
           </div>
           <div class="menu-item">
-              <span>Manchurian Cheesy Roll - 100.00 ₹</span>
+              <span>Manchurian Cheesy Roll - 100 ₹</span>
               <button onclick="addToCart('Manchurian Cheesy Roll', 120.00)">Add to Cart</button>
           </div>
           <div class="menu-item">
-            <span>Paneer Cheesy Roll - 120.00 ₹</span>
+            <span>Paneer Cheesy Roll - 120 ₹</span>
             <button onclick="addToCart('Paneer Cheesy Roll', 120.00)">Add to Cart</button>
         </div>
         <div class="menu-item">
-            <span>Sweet Corn Cheesy Roll - 120.00 ₹</span>
+            <span>Sweet Corn Cheesy Roll - 120 ₹</span>
             <button onclick="addToCart('Sweet Corn Cheesy Roll', 120.00)">Add to Cart</button>
         </div>
       </div>
 
+      <div id="chinese-section" class="menu-section">
+        <h2>Chinese Menu</h2>
+        <div class="menu-item">
+            <span>Continental Manchurian - 100 ₹</span>
+            <button onclick="addToCart('Continental Manchurian', 100.00)">Add to Cart</button>
+        </div>
+        <div class="menu-item">
+            <span>Butter Cheesy Veg Maggi- 100 ₹</span>
+            <button onclick="addToCart('Butter Cheesy Veg Maggi', 100.00)">Add to Cart</button>
+        </div>
+        <div class="menu-item">
+            <span>Hakka Noodles - 110 ₹</span>
+            <button onclick="addToCart('Hakka Noodles', 110.00)">Add to Cart</button>
+        </div>
+        <div class="menu-item">
+            <span>Schezwan Noodles - 120 ₹</span>
+            <button onclick="addToCart('Schezwan Noodles', 120.00)">Add to Cart</button>
+        </div>
+        <div class="menu-item">
+            <span>Manchurian Noodles - 130 ₹</span>
+            <button onclick="addToCart('Manchurian Noodles', 130.00)">Add to Cart</button>
+        </div>
+        <div class="menu-item">
+            <span>Chilli Paneer - 140 ₹</span>
+            <button onclick="addToCart('Chilli Paneer', 140.00)">Add to Cart</button>
+        </div>
+      </div>
+
+
       <div id="pasta-section" class="menu-section">
         <h2>Pasta</h2>
         <div class="menu-item">
-            <span>Italian Mix Veg Pasta - 140.00 ₹</span>
+            <span>Italian Mix Veg Pasta - 140 ₹</span>
             <button onclick="addToCart('Italian Mix Veg Pasta', 140.00)">Add to Cart</button>
         </div>
         <div class="menu-item">
-            <span>4 Cheese Pasta - 120.00 ₹</span>
+            <span>4 Cheese Pasta - 120 ₹</span>
             <button onclick="addToCart('4 Cheese Pasta', 120.00)">Add to Cart</button>
         </div>
         <div class="menu-item">
-            <span>Red Sauce Pasta - 120.00 ₹</span>
+            <span>Red Sauce Pasta - 120 ₹</span>
             <button onclick="addToCart('Red Sauce Pasta', 120.00)">Add to Cart</button>
         </div>
         <div class="menu-item">
-            <span>White Sauce Pasta - 120.00 ₹</span>
+            <span>White Sauce Pasta - 120 ₹</span>
             <button onclick="addToCart('Red Sauce Pasta', 120.00)">Add to Cart</button>
         </div>
+      </div>
 
 
         <div id="shake-section" class="menu-section">
             <h2>Milk Shakes & Thick Shakes</h2>
             <div class="menu-item">
-                <span>Cold Coffee - 80.00 ₹</span>
+                <span>Cold Coffee - 80 ₹</span>
                 <button onclick="addToCart('Cold Coffee', 80.00)">Add to Cart</button>
             </div>
             <div class="menu-item">
-                <span>Strawberry Shake - 80.00 ₹</span>
+                <span>Strawberry Shake - 80 ₹</span>
                 <button onclick="addToCart('Strawberry Shake', 80.00)">Add to Cart</button>
             </div>
             <div class="menu-item">
-                <span>Mango Shake - 80.00 ₹</span>
+                <span>Mango Shake - 80 ₹</span>
                 <button onclick="addToCart('Mango Shake', 80.00)">Add to Cart</button>
             </div>
             <div class="menu-item">
-                <span>Butter Scotch Shake - 90.00 ₹</span>
+                <span>Butter Scotch Shake - 90 ₹</span>
                 <button onclick="addToCart('Butter Scotch Shake', 90.00)">Add to Cart</button>
             </div>
             <div class="menu-item">
-                <span>KitKat Shake - 100.00 ₹</span>
+                <span>KitKat Shake - 100 ₹</span>
                 <button onclick="addToCart('KitKAt Shake', 100.00)">Add to Cart</button>
             </div>
             <div class="menu-item">
-                <span>Oreo Shake - 100.00 ₹</span>
+                <span>Oreo Shake - 100 ₹</span>
                 <button onclick="addToCart('Oreo Shake', 100.00)">Add to Cart</button>
             </div>
             <div class="menu-item">
-                <span>Pan Thick Shake - 100.00 ₹</span>
+                <span>Pan Thick Shake - 100 ₹</span>
                 <button onclick="addToCart('Pan Thick Shake', 100.00)">Add to Cart</button>
             </div>
             <div class="menu-item">
-                <span>Mix Fruit Thick Shake - 100.00 ₹</span>
+                <span>Mix Fruit Thick Shake - 100 ₹</span>
                 <button onclick="addToCart('Mix Fruit Thick Shake', 100.00)">Add to Cart</button>
             </div>
             <div class="menu-item">
-                <span>Choco Chips Thick Shake - 100.00 ₹</span>
+                <span>Choco Chips Thick Shake - 100 ₹</span>
                 <button onclick="addToCart('Choco Chips Thick Shake', 100.00)">Add to Cart</button>
             </div>
             <div class="menu-item">
-                <span>Badam Thick Shake - 130.00 ₹</span>
+                <span>Badam Thick Shake - 130 ₹</span>
                 <button onclick="addToCart('Badam Thick Shake', 130.00)">Add to Cart</button>
             </div>
             <div class="menu-item">
-                <span>Mix Dry Fruit Thick Shake - 150.00 ₹</span>
+                <span>Mix Dry Fruit Thick Shake - 150 ₹</span>
                 <button onclick="addToCart('Mix Dry Fruit Thick Shake', 150.00)">Add to Cart</button>
             </div>
         </div>
+      
+        <div id="combo-section" class="menu-section">
+            <h2>Veg Combos</h2>
+            <div class="menu-item">
+                <span>Mix Veg Pizza + Kit-Kat Shake - 250 ₹</span>
+                <button onclick="addToCart('Mix Veg Pizza + Kit-Kat Shake', 250.00)">Add to Cart</button>
+            </div>
+            <div class="menu-item">
+                <span>Paneer Corn Pizza + 2 Burger + 2 Cold Coffee  - 500 ₹</span>
+                <button onclick="addToCart('Paneer Corn Pizza + 2 Burger + 2 Cold Coffee', 500.00)">Add to Cart</button>
+            </div>
+            <div class="menu-item">
+                <span>4 Burger + 1 Overloaded Pizza + 4 Cold Coffee  - 749 ₹</span>
+                <button onclick="addToCart('4 Burger + 1 Overloaded Pizza + 4 Cold Coffee', 749.00)">Add to Cart</button>
+            </div>
+            <h2>Chinese Combo</h2>
+            <div class="menu-item">
+                <span>Dry Manchurian + Oreo Shake - 200 ₹</span>
+                <button onclick="addToCart('Dry Manchurian + Oreo Shake', 200.00)">Add to Cart</button>
+            </div>
+            <div class="menu-item">
+                <span>Chilli Paneer + Cold Coffee - 250 ₹</span>
+                <button onclick="addToCart('Chilli Paneer + Cold Coffee', 250.00)">Add to Cart</button>
+            </div>
+            <div class="menu-item">
+                <span>Chilli Paneer + Dry Manchurian + Paneer Roll + Manchurian Roll - 450 ₹</span>
+                <button onclick="addToCart('Chilli Paneer + Dry Manchurian + Paneer Roll + Manchurian Roll', 450.00)">Add to Cart</button>
+            </div>
+            <div class="menu-item">
+                <span>2 Rolls + 2P Dry Manchurian + 2 Chilli Paneer + 2 Shakes - 850 ₹</span>
+                <button onclick="addToCart('2 Rolls + 2P Dry Manchurian + 2 Chilli Paneer + 2 Shakes', 850.00)">Add to Cart</button>
+            </div>
 
-        <!-- <div id="cart-icon" onclick="showCart()">
-            <i class="fas fa-shopping-cart"></i>
-            <span id="cart-count">0</span>
-        </div> -->
+        </div>
 
    <!-- Cart Section -->
    <div id="cart-section" class="cart-section">
@@ -755,6 +908,8 @@
     <div id="contact" class="menu-section">
         <h2>Contact Us</h2>
         <p>If you have any questions or feedback, feel free to reach out to us. We're here to help!</p>
+        <span>Deepak:</span>
+        <span><a href="tel:+9322716475">9322716475</a></span>
     </div>
     <script>
         let cart = [];

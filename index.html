@@ -425,7 +425,7 @@
 
     <!-- <div id="home" class="menu-section"> -->
         <h1 id="home">WELCOME  </h1><br><br>
-        <p>Delicious dishes at Cakes & Cafe, where you can dine in and enjoy our cozy atmosphere or order from home for doorstep delivery. Explore our menu, place your order, and savor a delightful experience with us...</p><br><br><br><br><br><br><br><br><br><br>
+        <p style="font-style: oblique;">Delicious dishes at Cakes & Cafe, where you can dine in and enjoy our cozy atmosphere or order from home for doorstep delivery. Explore our menu, place your order, and savor a delightful experience with us...</p><br><br><br><br><br><br><br><br><br><br>
     <!-- </div> -->
            
 
@@ -748,7 +748,7 @@
               <button onclick="addToCart('Mix Veg Cheesy Roll', 100.00)">Add to Cart</button>
           </div>
           <div class="menu-item">
-              <span>Manchurian Cheesy Roll - 100 ₹</span>
+              <span>Manchurian Cheesy Roll - 120 ₹</span>
               <button onclick="addToCart('Manchurian Cheesy Roll', 120.00)">Add to Cart</button>
           </div>
           <div class="menu-item">
@@ -898,7 +898,9 @@
     <h2>Cart</h2>
     <div id="cart-items"></div>
     <div class="cart-total" id="cart-total">Total: ₹0.00</div>
-    <input type="text" id="table-number" class="table-number" placeholder="Enter your table number / Your Address">
+    <input type="text" id="table-number" class="table-number" placeholder="Enter your table number / Your Address"><br>
+    <spam style="font-weight: bolder;font-style: italic;">Note :- Delivery Charges-50rs <br> <br> Free Delivery on order value above 250rs </spam><br>
+    <br><br>
     <button onclick="placeOrder()">Place Order</button>
     <button onclick="clearCart()">Clear Cart</button>
 </div>
@@ -909,7 +911,9 @@
         <h2>Contact Us</h2>
         <p>If you have any questions or feedback, feel free to reach out to us. We're here to help!</p>
         <span>Deepak:</span>
-        <span><a href="tel:+9322716475">9322716475</a></span>
+        <span><a href="tel:+9960923397">9960923397</a></span><br><br>
+        <span>Ujjwal:</span>
+        <span><a href="tel:+7350082284">7350082284</a></span>
     </div>
     <script>
         let cart = [];
@@ -925,29 +929,43 @@
         }
 
         function addToCart(name, price) {
-            cart.push({ name, price });
-            displayCart();
-        }
+    // Check if the item already exists in cart
+    const existingItem = cart.find(item => item.name === name);
+    
+    if (existingItem) {
+        existingItem.quantity++; // Increment quantity
+    } else {
+        cart.push({ name: name, price: price, quantity: 1 }); // Add new item
+    }
+    
+    displayCart();
+}
 
-        function displayCart() {
-            const cartContainer = document.getElementById('cart-items');
-            const cartTotal = document.getElementById('cart-total');
-            cartContainer.innerHTML = '';
-            let total = 0;
-            cart.forEach((item, index) => {
-                let cartItem = document.createElement('div');
-                cartItem.classList.add('cart-item');
-                cartItem.textContent = `${item.name} - ₹${item.price.toFixed(2)}`;
-                const removeButton = document.createElement('button');
-                removeButton.textContent = 'Remove';
-                removeButton.onclick = () => removeItemFromCart(index);
-                cartItem.appendChild(removeButton);
-                cartContainer.appendChild(cartItem);
-                total += item.price;
-            });
-            cartTotal.textContent = `Total: ₹${total.toFixed(2)}`;
-            document.getElementById('cart-count').textContent = cart.length;
-        }
+function displayCart() {
+    const cartContainer = document.getElementById('cart-items');
+    const cartTotal = document.getElementById('cart-total');
+    cartContainer.innerHTML = '';
+    let total = 0;
+    
+    cart.forEach((item, index) => {
+        let cartItem = document.createElement('div');
+        cartItem.classList.add('cart-item');
+        
+        // Display item name with quantity
+        cartItem.textContent = `${item.name} - ₹${item.price.toFixed(2)} x ${item.quantity}`;
+        
+        const removeButton = document.createElement('button');
+        removeButton.textContent = 'Remove';
+        removeButton.onclick = () => removeItemFromCart(index);
+        cartItem.appendChild(removeButton);
+        cartContainer.appendChild(cartItem);
+        
+        total += item.price * item.quantity; // Calculate total price
+    });
+    
+    cartTotal.textContent = `Total: ₹${total.toFixed(2)}`;
+    document.getElementById('cart-count').textContent = cart.reduce((acc, item) => acc + item.quantity, 0);
+}
 
         function placeOrder() {
             const tableNumber = document.getElementById('table-number').value.trim();
@@ -964,8 +982,8 @@
             let orderDetails = `Table Number / Your Address: ${tableNumber}\nOrder details:\n`;
             let total = 0;
             cart.forEach(item => {
-                orderDetails += `${item.name} - ₹${item.price.toFixed(2)}\n`;
-                total += item.price;
+                orderDetails += `${item.name} - ₹${item.price.toFixed(2)} x ${item.quantity}`;
+                total += item.price * item.quantity;
             });
             orderDetails += `Total: ₹${total.toFixed(2)}`;
 

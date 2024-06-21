@@ -982,10 +982,10 @@ function displayCart() {
             let orderDetails = `Table Number / Your Address: ${tableNumber}\nOrder details:\n`;
             let total = 0;
             cart.forEach(item => {
-                orderDetails += `${item.name} - ₹${item.price.toFixed(2)} x ${item.quantity}`;
+                orderDetails += `\n${item.name} x ${item.quantity} - ₹${item.price.toFixed(2)} \n`;
                 total += item.price * item.quantity;
             });
-            orderDetails += `Total: ₹${total.toFixed(2)}`;
+            orderDetails += `\nTotal: ₹${total.toFixed(2)}`;
 
             const encodedOrderDetails = encodeURIComponent(orderDetails);
             const whatsappNumber = "7741909127";  // Replace with the waiter's WhatsApp number
